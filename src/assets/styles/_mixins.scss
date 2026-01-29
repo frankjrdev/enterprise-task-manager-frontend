@@ -1,0 +1,232 @@
+// ============================================================================
+// Mixins - Reusable SCSS Patterns
+// ============================================================================
+@use './variables' as *;
+
+// ============================================================================
+// Layout Mixins
+// ============================================================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+// ============================================================================
+// Responsive Mixins
+// ============================================================================
+
+@mixin breakpoint($point) {
+  @if $point == 'xs' {
+    @media (min-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $point == 'sm' {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $point == 'md' {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $point == 'lg' {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $point == 'xl' {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $point == '2xl' {
+    @media (min-width: $breakpoint-2xl) {
+      @content;
+    }
+  }
+}
+
+// ============================================================================
+// Typography Mixins
+// ============================================================================
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ============================================================================
+// Shadow & Depth Mixins
+// ============================================================================
+
+@mixin shadow($level: 'md') {
+  @if $level == 'sm' {
+    box-shadow: $shadow-sm;
+  } @else if $level == 'md' {
+    box-shadow: $shadow-md;
+  } @else if $level == 'lg' {
+    box-shadow: $shadow-lg;
+  } @else if $level == 'xl' {
+    box-shadow: $shadow-xl;
+  } @else if $level == '2xl' {
+    box-shadow: $shadow-2xl;
+  }
+}
+
+@mixin elevation($level) {
+  @if $level == 1 {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  } @else if $level == 2 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  } @else if $level == 3 {
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+  } @else if $level == 4 {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+// ============================================================================
+// Transition Mixins
+// ============================================================================
+
+@mixin transition($property: all, $duration: $transition-base) {
+  transition: $property $duration;
+}
+
+@mixin smooth-transition {
+  transition:
+    background-color $transition-base,
+    color $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base;
+}
+
+// ============================================================================
+// Button Mixins
+// ============================================================================
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+@mixin button-base {
+  @include button-reset;
+  @include flex-center;
+  @include smooth-transition;
+
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================================================
+// Input Mixins
+// ============================================================================
+
+@mixin input-base {
+  padding: $spacing-md $spacing-lg;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  font: inherit;
+  @include smooth-transition;
+
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $color-accent;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================================================
+// Utilities
+// ============================================================================
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

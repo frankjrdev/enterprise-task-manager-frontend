@@ -1,0 +1,46 @@
+@use 'angular/material' as mat;
+
+@include mat.core();
+
+//Custom pallette with variables
+$dark-primary: (
+  50: #e4e4e5,
+  100: #bcbcbe,
+  // $color-dark-primary
+  500: #1e1f22,
+  700: #161719,
+  contrast: (
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+
+$orange-accent: (
+  50: #fdf4e6,
+  100: #f9e3c0,
+  // $color-accent
+  500: #e29a33,
+  700: #d4872a,
+  contrast: (
+    500: #000000,
+    700: #000000,
+  ),
+);
+
+// Dark theme definition
+$my-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.define-palette($dark-primary),
+      accent: mat.define-palette($orange-accent),
+    ),
+    typography: mat.define-typography(),
+    density: 0,
+  )
+);
+
+// Aplicar tema globalmente
+:root {
+  @include mat.all-component-themes($my-theme);
+}

@@ -1,0 +1,205 @@
+// ============================================================================
+// CSS Reset & Normalize
+// ============================================================================
+@use './variables' as *;
+@use './mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-md;
+  font-weight: $font-weight-normal;
+  line-height: 1.5;
+  color: $color-text-primary;
+  background-color: $color-bg-primary;
+  @include smooth-transition;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+}
+
+h2 {
+  font-size: $font-size-3xl;
+}
+
+h3 {
+  font-size: $font-size-2xl;
+}
+
+h4 {
+  font-size: $font-size-xl;
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-md;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  @include smooth-transition;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// Forms
+input,
+textarea,
+select,
+button {
+  font-family: $font-family-base;
+  font-size: inherit;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  @include input-base;
+}
+
+button {
+  @include button-base;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+label {
+  display: block;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+}
+
+// Lists
+ol,
+ul {
+  list-style: none;
+}
+
+// Media
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  padding: $spacing-md;
+  text-align: left;
+  border-bottom: 1px solid $color-border;
+}
+
+th {
+  font-weight: $font-weight-semibold;
+  background-color: $color-bg-secondary;
+}
+
+// Code
+code,
+kbd,
+samp,
+pre {
+  font-family: $font-family-mono;
+}
+
+code,
+kbd,
+samp {
+  padding: $spacing-xs $spacing-sm;
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  padding: $spacing-lg;
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-lg;
+  overflow-x: auto;
+
+  code {
+    padding: 0;
+    background: none;
+  }
+}
+
+// Scrollbar customization
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-text-secondary;
+  border-radius: $border-radius-lg;
+
+  &:hover {
+    background: $color-accent;
+  }
+}
+
+// Selection
+::selection {
+  background-color: $color-accent;
+  color: $color-bg-primary;
+}

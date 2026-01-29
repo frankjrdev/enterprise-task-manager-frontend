@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.angular/
+coverage/
+cypress/
+build/
+cypress.config.ts
+jest.config.js
+setup-jest.ts

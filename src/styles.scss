@@ -1,0 +1,137 @@
+// ============================================================================
+// Global Styles - Enterprise Task Manager
+// ============================================================================
+
+// 1. Load variables and mixins first
+@use 'assets/styles/variables' as *;
+@use 'assets/styles/mixins' as *;
+
+// 2. Load reset and normalize
+@use 'assets/styles/reset';
+
+// 3. Global utilities and helpers
+.sr-only {
+  @include visually-hidden;
+}
+
+// ============================================================================
+// Container Utilities
+// ============================================================================
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+
+  @include breakpoint('sm') {
+    max-width: 540px;
+  }
+
+  @include breakpoint('md') {
+    max-width: 720px;
+  }
+
+  @include breakpoint('lg') {
+    max-width: 960px;
+  }
+
+  @include breakpoint('xl') {
+    max-width: 1140px;
+  }
+
+  @include breakpoint('2xl') {
+    max-width: 1320px;
+  }
+}
+
+// ============================================================================
+// Flex Utilities
+// ============================================================================
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+// ============================================================================
+// Grid Utilities
+// ============================================================================
+
+.grid {
+  display: grid;
+}
+
+.grid-center {
+  @include grid-center;
+}
+
+// ============================================================================
+// Text Utilities
+// ============================================================================
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-truncate {
+  @include truncate;
+}
+
+.text-primary {
+  color: $color-text-primary;
+}
+
+.text-secondary {
+  color: $color-text-secondary;
+}
+
+.text-accent {
+  color: $color-accent;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+// ============================================================================
+// Background Utilities
+// ============================================================================
+
+.bg-primary {
+  background-color: $color-bg-primary;
+}
+
+.bg-secondary {
+  background-color: $color-bg-secondary;
+}
+
+.bg-accent {
+  background-color: $color-accent;
+}

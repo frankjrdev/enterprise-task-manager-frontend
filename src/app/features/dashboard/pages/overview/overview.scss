@@ -1,0 +1,240 @@
+@use 'variables' as *;
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+// Stats Grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $spacing-lg;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-xl;
+  border: 1px solid $color-border;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-2xl;
+
+  &--primary {
+    background-color: rgba($color-accent, 0.15);
+  }
+
+  &--success {
+    background-color: rgba($color-success, 0.15);
+  }
+
+  &--warning {
+    background-color: rgba($color-warning, 0.15);
+  }
+
+  &--danger {
+    background-color: rgba($color-danger, 0.15);
+  }
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-top: $spacing-xs;
+}
+
+// Section Styles
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+}
+
+.section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.btn-secondary {
+  padding: $spacing-sm $spacing-lg;
+  background-color: transparent;
+  color: $color-accent;
+  border: 1px solid $color-accent;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background-color: rgba($color-accent, 0.1);
+  }
+}
+
+// Tasks List
+.recent-tasks {
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-xl;
+  border: 1px solid $color-border;
+  padding: $spacing-xl;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background-color: $color-bg-primary;
+  border-radius: $border-radius-lg;
+  border: 1px solid $color-border;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+.task-status {
+  width: 12px;
+  height: 12px;
+  border-radius: $border-radius-full;
+  flex-shrink: 0;
+
+  &--completed {
+    background-color: $color-success;
+  }
+
+  &--in-progress {
+    background-color: $color-info;
+  }
+
+  &--pending {
+    background-color: $color-warning;
+  }
+
+  &--overdue {
+    background-color: $color-danger;
+  }
+}
+
+.task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.task-title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.task-meta {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.task-priority {
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+
+  &--high {
+    background-color: rgba($color-danger, 0.15);
+    color: $color-danger;
+  }
+
+  &--medium {
+    background-color: rgba($color-warning, 0.15);
+    color: $color-warning;
+  }
+
+  &--low {
+    background-color: rgba($color-success, 0.15);
+    color: $color-success;
+  }
+}
+
+// Quick Actions
+.quick-actions {
+  .section-title {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: $spacing-lg;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  background-color: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-xl;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background-color: rgba($color-accent, 0.1);
+    border-color: $color-accent;
+    transform: translateY(-2px);
+  }
+}
+
+.action-icon {
+  font-size: $font-size-3xl;
+}
+
+.action-text {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
