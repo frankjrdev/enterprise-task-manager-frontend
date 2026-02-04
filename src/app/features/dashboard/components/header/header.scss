@@ -1,101 +1,55 @@
+@use 'sass:color';
 @use 'variables' as *;
 
-.header {
+header {
+  position: fixed;
+  top: 0;
+  left: 260px; // Position after the sidebar
+  right: 0;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: $spacing-lg $spacing-xl;
   background-color: $color-bg-secondary;
   border-bottom: 1px solid $color-border;
+  z-index: 100;
 }
 
-.header-left {
+.header_container {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
 }
 
-.page-title {
-  font-size: $font-size-2xl;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-  margin: 0;
-}
-
-.header-right {
+.breadcrumbs {
   display: flex;
   align-items: center;
-  gap: $spacing-lg;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: $spacing-sm;
+}
+
+.header_actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.new_task_button {
   padding: $spacing-sm $spacing-lg;
-  background-color: $color-bg-primary;
-  border: 1px solid $color-border;
-  border-radius: $border-radius-lg;
-  transition: all $transition-base;
-
-  &:focus-within {
-    border-color: $color-accent;
-    box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
-  }
-}
-
-.search-icon {
-  font-size: $font-size-md;
-}
-
-.search-input {
+  background-color: $color-accent;
+  color: $color-white;
   border: none;
-  background: transparent;
-  color: $color-text-primary;
+  border-radius: $border-radius-md;
   font-size: $font-size-sm;
-  width: 200px;
-  outline: none;
-  padding: 0;
-
-  &::placeholder {
-    color: $color-text-secondary;
-  }
-}
-
-.notification-btn {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: $border-radius-lg;
-  background-color: $color-bg-primary;
-  border: 1px solid $color-border;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: all $transition-base;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &:hover {
-    background-color: rgba($color-accent, 0.1);
-    border-color: $color-accent;
+    background-color: color.adjust($color-accent, $lightness: -10%);
   }
-}
-
-.notification-icon {
-  font-size: $font-size-lg;
-}
-
-.notification-badge {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 18px;
-  height: 18px;
-  border-radius: $border-radius-full;
-  background-color: $color-danger;
-  color: $color-white;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
