@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'header-component',
+  selector: 'app-header-component',
   imports: [MatIconModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'tasks',
+  selector: 'app-tasks',
   imports: [],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
 })
-export class Tasks {
-
-}
+export class Tasks {}

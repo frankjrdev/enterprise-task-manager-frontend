@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'settings',
+  selector: 'app-settings',
   imports: [],
   template: `<p>settings works!</p>`,
   styleUrl: './settings.scss',

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'help',
+  selector: 'app-help',
   imports: [],
   templateUrl: './help.html',
   styleUrl: './help.scss',
 })
-export class Help {
-
-}
+export class Help {}

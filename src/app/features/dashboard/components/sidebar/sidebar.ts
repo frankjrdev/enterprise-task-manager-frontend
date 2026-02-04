@@ -1,17 +1,22 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { id } from '@swimlane/ngx-charts';
+
+interface NavigationOption {
+  id: string;
+  path: string;
+  label: string;
+}
 
 @Component({
-  selector: 'sidebar',
+  selector: 'app-sidebar',
   imports: [RouterLink, RouterLinkActive, MatSidenavModule, MatListModule],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
 export class SidebarComponent {
-  userNavigateOptions: any[] = [
+  userNavigateOptions: NavigationOption[] = [
     {
       id: 'overview',
       path: '/dashboard',
@@ -34,7 +39,7 @@ export class SidebarComponent {
     },
   ];
 
-  configNavigateOptions: any[] = [
+  configNavigateOptions: NavigationOption[] = [
     {
       id: 'settings',
       path: '/dashboard/settings',

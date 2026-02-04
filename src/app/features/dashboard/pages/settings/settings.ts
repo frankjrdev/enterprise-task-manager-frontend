@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'settings',
+  selector: 'app-settings',
   imports: [],
   templateUrl: './settings.html',
   styleUrl: './settings.scss',
 })
-export class Settings {
-
-}
+export class Settings {}
