@@ -1,4 +1,4 @@
-@use 'angular/material' as mat;
+@use '@angular/material' as mat;
 
 @include mat.core();
 
@@ -28,14 +28,13 @@ $orange-accent: (
 );
 
 // Dark theme definition
-$my-theme: mat.define-theme(
+$my-theme: mat.m2-define-dark-theme(
   (
     color: (
-      theme-type: dark,
-      primary: mat.define-palette($dark-primary),
-      accent: mat.define-palette($orange-accent),
+      primary: mat.m2-define-palette($dark-primary),
+      accent: mat.m2-define-palette($orange-accent),
     ),
-    typography: mat.define-typography(),
+    typography: mat.m2-define-typography-config(),
     density: 0,
   )
 );

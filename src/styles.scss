@@ -6,7 +6,10 @@
 @use 'assets/styles/variables' as *;
 @use 'assets/styles/mixins' as *;
 
-// 2. Load reset and normalize
+// 2. Load Material Theme
+@use 'assets/styles/material-theme';
+
+// 3. Load reset and normalize
 @use 'assets/styles/reset';
 
 // 3. Global utilities and helpers
