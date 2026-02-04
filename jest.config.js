@@ -22,14 +22,18 @@ module.exports = {
     '@app/(.*)': '<rootDir>/src/app/$1',
     '@core/(.*)': '<rootDir>/src/app/core/$1',
     '@shared/(.*)': '<rootDir>/src/app/shared/$1',
-    '@features/(.*)': '<rootDir>/src/app/features/$1'
+    '@features/(.*)': '<rootDir>/src/app/features/$1',
+    '@layouts/(.*)': '<rootDir>/src/app/layouts/$1'
   },
   testEnvironment: 'jsdom',
   coverageDirectory: '<rootDir>/coverage',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$'
-    }
+  transform: {
+    '^.+\\.tsx?$': [
+      'jest-preset-angular',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+        stringifyContentPathRegex: '\\.(html|svg)$'
+      }
+    ]
   }
 };
