@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidebar_container">
+  <mat-sidenav mode="side" opened>
+    <div class="logo">Enterprise Task Manager</div>
+    <mat-nav-list>
+      @for (userNav of userNavigateOptions; track userNav.id) {
+        <a mat-list-item [routerLink]="userNav.path" routerLinkActive="active-link">
+          {{ userNav.label }}
+        </a>
+      }
+    </mat-nav-list>
+
+    <div class="config-section">
+      <h2>Config</h2>
+      <mat-nav-list>
+        @for (configNav of configNavigateOptions; track configNav.id) {
+          <a mat-list-item [routerLink]="configNav.path" routerLinkActive="active-link">
+            {{ configNav.label }}
+          </a>
+        }
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Main content goes here via router-outlet in the parent layout, but for now this container might just wrap the sidebar -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
