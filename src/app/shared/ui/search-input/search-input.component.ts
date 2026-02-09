@@ -115,136 +115,143 @@ import { MatIconModule } from '@angular/material/icon';
       }
     </div>
   `,
-  styles: [`
-    .search-input {
-      /* Layout */
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+  styles: [
+    `
+      .search-input {
+        /* Layout */
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
 
-      /* Sizing */
-      width: 100%;
-      max-width: 500px;
-      height: 40px;
+        /* Sizing */
+        width: 100%;
+        max-width: 500px;
+        height: 30px;
 
-      /* Styling */
-      padding: 0 0.75rem;
-      background-color: var(--search-bg, #1f2937);
-      border: 1px solid var(--search-border, #374151);
-      border-radius: 8px;
+        /* Styling */
+        padding: 0 0.75rem;
+        background-color: var(--search-bg, #1f2937);
+        border: 1px solid var(--search-border, #313337);
 
-      /* Transition para estados */
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.2s ease;
-    }
-
-    /* Estado: Focused */
-    .search-input--focused {
-      border-color: var(--search-focus-border, #3b82f6);
-      box-shadow: 0 0 0 3px var(--search-focus-ring, rgba(59, 130, 246, 0.2));
-    }
-
-    /* Estado: Disabled */
-    .search-input--disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      background-color: var(--search-disabled-bg, #111827);
-    }
-
-    /* Estado: Loading */
-    .search-input--loading {
-      /* Visual indicator de loading */
-    }
-
-    /* Iconos */
-    .search-input__icon-left {
-      display: flex;
-      align-items: center;
-      color: var(--search-icon-color, #6b7280);
-      flex-shrink: 0;
-
-      mat-icon {
-        font-size: 1.25rem;
-        width: 1.25rem;
-        height: 1.25rem;
-      }
-    }
-
-    /* Spinner animation */
-    .search-input__spinner {
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Campo de texto */
-    .search-input__field {
-      /* Reset */
-      border: none;
-      outline: none;
-      background: transparent;
-
-      /* Fill disponible */
-      flex: 1;
-      min-width: 0; /* Permite shrink */
-
-      /* Texto */
-      font-family: inherit;
-      font-size: 0.875rem;
-      color: var(--search-text-color, #f9fafb);
-
-      &::placeholder {
-        color: var(--search-placeholder-color, #6b7280);
+        /* Transition para estados */
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
       }
 
-      &:disabled {
+      /* Estado: Focused */
+      .search-input--focused {
+        border-color: var(--search-focus-border, #c6801c);
+        box-shadow: 0 0 0 3px var(--search-focus-ring, rgba(59, 130, 246, 0.2));
+      }
+
+      /* Estado: Disabled */
+      .search-input--disabled {
+        opacity: 0.5;
         cursor: not-allowed;
-      }
-    }
-
-    /* Boton Clear */
-    .search-input__clear {
-      /* Reset button */
-      border: none;
-      background: transparent;
-      padding: 0.25rem;
-      margin: 0;
-      cursor: pointer;
-
-      /* Layout */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-
-      /* Styling */
-      color: var(--search-clear-color, #6b7280);
-      border-radius: 4px;
-      transition: color 0.2s ease, background-color 0.2s ease;
-
-      &:hover {
-        color: var(--search-clear-hover-color, #f9fafb);
-        background-color: var(--search-clear-hover-bg, rgba(255, 255, 255, 0.1));
+        background-color: var(--search-disabled-bg, #111827);
       }
 
-      &:focus-visible {
-        outline: 2px solid var(--search-focus-border, #3b82f6);
-        outline-offset: 1px;
+      /* Estado: Loading */
+      .search-input--loading {
+        /* Visual indicator de loading */
       }
 
-      mat-icon {
-        font-size: 1rem;
-        width: 1rem;
-        height: 1rem;
+      /* Iconos */
+      .search-input__icon-left {
+        display: flex;
+        align-items: center;
+        color: var(--search-icon-color, #6b7280);
+        flex-shrink: 0;
+
+        mat-icon {
+          font-size: 1.25rem;
+          width: 1.25rem;
+          height: 1.25rem;
+        }
       }
-    }
-  `],
+
+      /* Spinner animation */
+      .search-input__spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Campo de texto */
+      .search-input__field {
+        /* Reset */
+        border: none;
+        outline: none;
+        background: transparent;
+
+        /* Fill disponible */
+        flex: 1;
+        min-width: 0; /* Permite shrink */
+
+        /* Texto */
+        font-family: inherit;
+        font-size: 0.875rem;
+        color: var(--search-text-color, #f9fafb);
+
+        &::placeholder {
+          color: var(--search-placeholder-color, #6b7280);
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+
+      /* Boton Clear */
+      .search-input__clear {
+        /* Reset button */
+        border: none;
+        background: transparent;
+        padding: 0.25rem;
+        margin: 0;
+        cursor: pointer;
+
+        /* Layout */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        /* Styling */
+        color: var(--search-clear-color, #6b7280);
+        border-radius: 4px;
+        transition:
+          color 0.2s ease,
+          background-color 0.2s ease;
+
+        &:hover {
+          color: var(--search-clear-hover-color, #f9fafb);
+          background-color: var(--search-clear-hover-bg, rgba(255, 255, 255, 0.1));
+        }
+
+        &:focus-visible {
+          outline: 2px solid var(--search-focus-border, #3b82f6);
+          outline-offset: 1px;
+        }
+
+        mat-icon {
+          font-size: 1rem;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    `,
+  ],
 })
 export class SearchInputComponent {
   // ============================================================================
@@ -254,8 +261,7 @@ export class SearchInputComponent {
   /**
    * Placeholder del campo de busqueda.
    */
-  public readonly placeholder: InputSignal<string> =
-    input<string>('Search...');
+  public readonly placeholder: InputSignal<string> = input<string>('Search...');
 
   /**
    * Indica si hay busqueda en progreso (muestra spinner).
@@ -275,8 +281,7 @@ export class SearchInputComponent {
   /**
    * Label de accesibilidad.
    */
-  public readonly ariaLabel: InputSignal<string> =
-    input<string>('Search field');
+  public readonly ariaLabel: InputSignal<string> = input<string>('Search field');
 
   // ============================================================================
   // Outputs
