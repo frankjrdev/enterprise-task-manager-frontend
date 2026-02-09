@@ -1,12 +1,6 @@
 <header class="header">
   <div class="header__container">
     <div class="header__left">
-      <!--
-        BREADCRUMBS SECTION
-        - Use dumb component BreadcrumbsComponent
-        - Pass breadcrumbs as input (signal)
-        - Listen to clicks for analytics
-      -->
       <section class="header__breadcrumbs">
         @if (hasBreadcrumbs()) {
           <app-breadcrumbs
@@ -24,7 +18,7 @@
             [placeholder]="searchPlaceholder()"
             [isSearching]="isSearching()"
             ariaLabel="Search in {{ pageTitle() }}"
-            (search)="onSearch($event)"
+            (searchQuery)="onSearch($event)"
             (clear)="onSearchClear()"
           />
         </section>
@@ -32,11 +26,6 @@
     </div>
 
     <section class="header__actions">
-      <!--
-        NOTIFICATIONS BUTTON
-        - Badge muestra contador
-        - aria-label describe la accion
-      -->
       <button
         type="button"
         class="header__action-button header__action-button--icon"
@@ -55,11 +44,6 @@
         }
       </button>
 
-      <!--
-        NEW TASK BUTTON
-        - Accion primaria destacada
-        - Icono + texto
-      -->
       <button
         type="button"
         class="header__action-button header__action-button--primary"
