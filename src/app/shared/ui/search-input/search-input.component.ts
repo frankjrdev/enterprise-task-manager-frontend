@@ -133,6 +133,8 @@ import { MatIconModule } from '@angular/material/icon';
         padding: 0 0.75rem;
         background-color: var(--search-bg, #1f2937);
         border: 1px solid var(--search-border, #313337);
+        border-radius: 0;
+        box-shadow: none;
 
         /* Transition para estados */
         transition:
@@ -144,7 +146,8 @@ import { MatIconModule } from '@angular/material/icon';
       /* Estado: Focused */
       .search-input--focused {
         border-color: var(--search-focus-border, #c6801c);
-        box-shadow: 0 0 0 3px var(--search-focus-ring, rgba(59, 130, 246, 0.2));
+        box-shadow: none;
+        border-radius: 0;
       }
 
       /* Estado: Disabled */
@@ -189,10 +192,22 @@ import { MatIconModule } from '@angular/material/icon';
 
       /* Campo de texto */
       .search-input__field {
-        /* Reset */
+        /* Reset navegador */
         border: none;
-        outline: none;
+        outline: 0;
         background: transparent;
+        box-shadow: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        /* Focus reset */
+        &:focus,
+        &:focus-visible {
+          outline: 0;
+          box-shadow: none;
+          border: none;
+        }
 
         /* Fill disponible */
         flex: 1;
@@ -291,7 +306,7 @@ export class SearchInputComponent {
    * Emitido cuando el usuario escribe (con cada cambio).
    * El parent decide si aplicar debounce.
    */
-  public readonly search: OutputEmitterRef<string> = output<string>();
+  public readonly searchQuery: OutputEmitterRef<string> = output<string>();
 
   /**
    * Emitido cuando el usuario limpia la busqueda.
@@ -373,7 +388,7 @@ export class SearchInputComponent {
    * Maneja input del usuario.
    */
   protected onInput(): void {
-    this.search.emit(this.query);
+    this.searchQuery.emit(this.query);
   }
 
   /**
@@ -425,7 +440,7 @@ export class SearchInputComponent {
    */
   public clearInput(): void {
     this.query = '';
-    this.search.emit('');
+    this.searchQuery.emit('');
     this.clear.emit();
     this.focus();
   }
