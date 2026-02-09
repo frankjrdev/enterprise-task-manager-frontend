@@ -5,8 +5,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  z-index: 200; // Higher than header so it stays on top
-
+  z-index: 200;
   mat-sidenav {
     width: 260px;
     background-color: $color-bg-secondary;
@@ -29,8 +28,7 @@
   }
 
   mat-nav-list {
-    padding-top: 0; // Removed horizontal padding to fix alignment
-    // Override Material Design list item spacing to match our 12px grid
+    padding-top: 0;
     --mdc-list-list-item-leading-space: 12px;
     --mdc-list-list-item-trailing-space: 12px;
     --mat-list-list-item-leading-space: 12px;
@@ -38,23 +36,19 @@
   }
 
   .nav-item {
-    // Remove conflicting layout properties as mat-list-item handles them
-    // display: flex; 
-    // align-items: center;
-    // gap: $spacing-lg;
-
-    // Removed explicit padding to avoid double-padding (Material adds its own)
-    margin-bottom: $spacing-md; // Más separación entre cada opción
-    border-radius: $border-radius-lg; // Bordes más redondeados
-    color: $color-text-primary; // Updated to primary gray color
+    margin-bottom: $spacing-md;
+    border-radius: 0;
+    color: $color-text-primary;
     transition: all $transition-base;
     cursor: pointer;
-    height: 48px; // Altura fija para asegurar alineación perfecta
+    height: 48px;
     text-decoration: none;
+    padding: 0 $spacing-md !important;
 
     &:hover {
-      background-color: rgba($color-accent, 0.1);
-      color: $color-text-primary;
+      background-color: $color-light-gray;
+      color: $color-white;
+      padding: $spacing-sm $spacing-md !important;
 
       .nav-icon {
         color: $color-accent;
@@ -66,11 +60,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px; // Dimensiones consistentes para el contenedor del icono
+    width: 24px;
     height: 24px;
     font-size: 20px;
-    color: $color-text-primary; // Updated to primary gray color
-    margin-right: 12px; // Reduced gap between icon and text
+    color: $color-text-primary;
+    margin-right: 12px;
     transition: color $transition-base;
     flex-shrink: 0;
   }
@@ -78,15 +72,16 @@
   .nav-label {
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    line-height: normal; // Reset de line-height para evitar desalineación
+    line-height: normal;
     display: flex;
     align-items: center;
-    color: inherit; // Inherit color from nav-item
+    color: inherit;
   }
 
   .active-link {
-    background-color: rgba($color-accent, 0.15) !important;
+    background-color: $color-light-gray !important;
     color: $color-text-primary !important;
+    padding: $spacing-sm $spacing-md !important;
 
     .nav-icon {
       color: $color-accent !important;
@@ -103,7 +98,7 @@
     padding-top: $spacing-md;
 
     h2 {
-      padding: $spacing-md $spacing-md $spacing-sm $spacing-md; // Align to 12px ($spacing-md) left to match icons and logo
+      padding: $spacing-md $spacing-md $spacing-sm $spacing-md;
       margin: 0;
       font-size: $font-size-xs;
       font-weight: $font-weight-semibold;
