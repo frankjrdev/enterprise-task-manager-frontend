@@ -42,3 +42,7 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Project-specific documentation (ignored by request)
+breadCrumb.md
+FRONTEND_SETUP.md
