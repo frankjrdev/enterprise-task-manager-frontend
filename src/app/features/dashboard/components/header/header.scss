@@ -1,55 +1,120 @@
 @use 'sass:color';
 @use 'variables' as *;
 
-header {
+.header {
   position: fixed;
   top: 0;
   left: 260px; // Position after the sidebar
   right: 0;
-  height: 64px;
+  height: 52px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: $spacing-lg $spacing-xl;
+  padding: 0 $spacing-lg;
   background-color: $color-bg-secondary;
   border-bottom: 1px solid $color-border;
   z-index: 100;
-}
 
-.header_container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: $spacing-md;
-}
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $spacing-lg;
+  }
 
-.breadcrumbs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-sm;
-}
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    flex: 1;
+    min-width: 0; // allow shrink without breaking layout
+  }
 
-.header_actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: $spacing-md;
-}
+  &__breadcrumbs {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    flex-shrink: 1;
+  }
 
-.new_task_button {
-  padding: $spacing-sm $spacing-lg;
-  background-color: $color-accent;
-  color: $color-white;
-  border: none;
-  border-radius: $border-radius-md;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  cursor: pointer;
-  transition: all $transition-base;
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 340px;
+    max-width: 40vw;
+    min-width: 220px;
+    --search-bg: #{$color-bg-primary};
+    --search-border: transparent;
 
-  &:hover {
-    background-color: color.adjust($color-accent, $lightness: -10%);
+    app-search-input {
+      width: 100%;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  &__action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+
+    &--icon {
+      background-color: transparent;
+      color: $color-text-secondary;
+      width: 36px;
+      height: 36px;
+      position: relative;
+      padding: 0;
+
+      &:hover {
+        background-color: rgba($color-white, 0.05);
+        color: $color-text-primary;
+      }
+    }
+
+    &--primary {
+      background-color: $color-accent;
+      color: $color-white;
+      padding: $spacing-sm $spacing-lg;
+      gap: $spacing-sm;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-sm;
+      height: 36px;
+      border-radius: 0;
+
+      &:hover {
+        background-color: color.adjust($color-accent, $lightness: -10%);
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9px;
+    background-color: $color-danger;
+    color: $color-white;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color-bg-secondary;
   }
 }

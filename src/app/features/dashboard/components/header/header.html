@@ -1,28 +1,74 @@
-<header>
-  <div class="header_container">
-    <!-- Breadcrumbs -->
+<header class="header">
+  <div class="header__container">
+    <div class="header__left">
+      <!--
+        BREADCRUMBS SECTION
+        - Use dumb component BreadcrumbsComponent
+        - Pass breadcrumbs as input (signal)
+        - Listen to clicks for analytics
+      -->
+      <section class="header__breadcrumbs">
+        @if (hasBreadcrumbs()) {
+          <app-breadcrumbs
+            [breadcrumbs]="breadcrumbs()"
+            [showIcons]="true"
+            separator="/"
+            (breadcrumbClick)="onBreadcrumbClick($event)"
+          />
+        }
+      </section>
 
-    <div class="breadcrumbs">
-      <p>Home</p>
-      <span>/</span>
-      <p>Dashboard Overview</p>
+      @if (showSearch()) {
+        <section class="header__search">
+          <app-search-input
+            [placeholder]="searchPlaceholder()"
+            [isSearching]="isSearching()"
+            ariaLabel="Search in {{ pageTitle() }}"
+            (search)="onSearch($event)"
+            (clear)="onSearchClear()"
+          />
+        </section>
+      }
     </div>
 
-    <!-- Search -->
-    <div class="search_bar">
-      <input type="text" placeholder="Search..." />
-    </div>
+    <section class="header__actions">
+      <!--
+        NOTIFICATIONS BUTTON
+        - Badge muestra contador
+        - aria-label describe la accion
+      -->
+      <button
+        type="button"
+        class="header__action-button header__action-button--icon"
+        [class.header__action-button--has-badge]="hasNotifications()"
+        [attr.aria-label]="
+          'Notifications' + (hasNotifications() ? ', ' + notificationCount() + ' unread' : '')
+        "
+        (click)="onNotificationsClick()"
+      >
+        <mat-icon>notifications</mat-icon>
 
-    <!-- Notifications and New tasks -->
-    <div class="header_actions">
-      <button class="notification_button">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="notification_important"
-        ></mat-icon>
+        @if (hasNotifications()) {
+          <span class="header__badge">
+            {{ notificationCount() }}
+          </span>
+        }
       </button>
-      <button class="new_task_button"><mat-icon>add</mat-icon> New Task</button>
-    </div>
+
+      <!--
+        NEW TASK BUTTON
+        - Accion primaria destacada
+        - Icono + texto
+      -->
+      <button
+        type="button"
+        class="header__action-button header__action-button--primary"
+        aria-label="Create new task"
+        (click)="onNewTaskClick()"
+      >
+        <mat-icon>add</mat-icon>
+        <span class="header__action-label">New Task</span>
+      </button>
+    </section>
   </div>
 </header>
