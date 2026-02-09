@@ -2,11 +2,9 @@
 
 @include mat.core();
 
-//Custom pallette with variables
 $dark-primary: (
   50: #e4e4e5,
   100: #bcbcbe,
-  // $color-dark-primary
   500: #1e1f22,
   700: #161719,
   contrast: (
@@ -18,7 +16,6 @@ $dark-primary: (
 $orange-accent: (
   50: #fdf4e6,
   100: #f9e3c0,
-  // $color-accent
   500: #e29a33,
   700: #d4872a,
   contrast: (
@@ -27,7 +24,6 @@ $orange-accent: (
   ),
 );
 
-// Dark theme definition
 $my-theme: mat.m2-define-dark-theme(
   (
     color: (
@@ -39,7 +35,6 @@ $my-theme: mat.m2-define-dark-theme(
   )
 );
 
-// Aplicar tema globalmente
 :root {
   @include mat.all-component-themes($my-theme);
 }

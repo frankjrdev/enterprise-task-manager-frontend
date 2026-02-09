@@ -1,6 +1,3 @@
-// ============================================================================
-// CSS Reset & Normalize
-// ============================================================================
 @use './variables' as *;
 @use './mixins' as *;
 
@@ -33,7 +30,6 @@ body {
   @include smooth-transition;
 }
 
-// Typography
 h1,
 h2,
 h3,
@@ -83,7 +79,6 @@ a {
   }
 }
 
-// Forms
 input,
 textarea,
 select,
@@ -115,13 +110,11 @@ label {
   cursor: pointer;
 }
 
-// Lists
 ol,
 ul {
   list-style: none;
 }
 
-// Media
 img,
 picture,
 video,
@@ -132,7 +125,6 @@ svg {
   height: auto;
 }
 
-// Tables
 table {
   width: 100%;
   border-collapse: collapse;
@@ -151,7 +143,6 @@ th {
   background-color: $color-bg-secondary;
 }
 
-// Code
 code,
 kbd,
 samp,
@@ -179,7 +170,6 @@ pre {
   }
 }
 
-// Scrollbar customization
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -198,7 +188,6 @@ pre {
   }
 }
 
-// Selection
 ::selection {
   background-color: $color-accent;
   color: $color-bg-primary;
