@@ -1,8 +1,3 @@
-// ============================================================================
-// Shared Models - Barrel Export
-// ============================================================================
-
-// Common interfaces and types
 export interface ApiResponse<T> {
   data: T;
   message: string;

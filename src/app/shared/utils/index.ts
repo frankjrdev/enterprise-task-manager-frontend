@@ -1,8 +1,3 @@
-// ============================================================================
-// Shared Utilities - Barrel Export
-// ============================================================================
-
-// Common utility functions
 export function formatDate(date: Date): string {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
