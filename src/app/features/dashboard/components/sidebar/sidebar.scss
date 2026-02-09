@@ -19,29 +19,97 @@
 
   .logo {
     height: 52px;
-    padding: 16px;
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 8px;
+    padding: $spacing-md;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-md;
+    margin-bottom: $spacing-sm;
+    display: flex;
+    align-items: center;
+    color: $color-text-primary;
+  }
+
+  mat-nav-list {
+    padding-top: 0; // Removed horizontal padding to fix alignment
+    // Override Material Design list item spacing to match our 12px grid
+    --mdc-list-list-item-leading-space: 12px;
+    --mdc-list-list-item-trailing-space: 12px;
+    --mat-list-list-item-leading-space: 12px;
+    --mat-list-list-item-trailing-space: 12px;
+  }
+
+  .nav-item {
+    // Remove conflicting layout properties as mat-list-item handles them
+    // display: flex; 
+    // align-items: center;
+    // gap: $spacing-lg;
+
+    // Removed explicit padding to avoid double-padding (Material adds its own)
+    margin-bottom: $spacing-md; // Más separación entre cada opción
+    border-radius: $border-radius-lg; // Bordes más redondeados
+    color: $color-text-primary; // Updated to primary gray color
+    transition: all $transition-base;
+    cursor: pointer;
+    height: 48px; // Altura fija para asegurar alineación perfecta
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba($color-accent, 0.1);
+      color: $color-text-primary;
+
+      .nav-icon {
+        color: $color-accent;
+      }
+    }
+  }
+
+  .nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px; // Dimensiones consistentes para el contenedor del icono
+    height: 24px;
+    font-size: 20px;
+    color: $color-text-primary; // Updated to primary gray color
+    margin-right: 12px; // Reduced gap between icon and text
+    transition: color $transition-base;
+    flex-shrink: 0;
+  }
+
+  .nav-label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    line-height: normal; // Reset de line-height para evitar desalineación
+    display: flex;
+    align-items: center;
+    color: inherit; // Inherit color from nav-item
+  }
+
+  .active-link {
+    background-color: rgba($color-accent, 0.15) !important;
+    color: $color-text-primary !important;
+
+    .nav-icon {
+      color: $color-accent !important;
+    }
+
+    .nav-label {
+      font-weight: $font-weight-semibold;
+    }
   }
 
   .config-section {
     margin-top: auto;
     border-top: 1px solid $color-border;
-    padding-top: 8px;
+    padding-top: $spacing-md;
 
     h2 {
-      padding: 16px 16px 8px;
+      padding: $spacing-md $spacing-md $spacing-sm $spacing-md; // Align to 12px ($spacing-md) left to match icons and logo
       margin: 0;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
       text-transform: uppercase;
       color: $color-text-secondary;
+      letter-spacing: 0.5px;
     }
-  }
-
-  .active-link {
-    background-color: rgba($color-dark-secondary, 0.1);
-    color: $color-white;
   }
 }
