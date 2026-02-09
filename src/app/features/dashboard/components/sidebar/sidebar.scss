@@ -21,7 +21,6 @@
     padding: $spacing-md;
     font-weight: $font-weight-semibold;
     font-size: $font-size-md;
-    margin-bottom: $spacing-sm;
     display: flex;
     align-items: center;
     color: $color-text-primary;
@@ -80,7 +79,7 @@
 
   .active-link {
     background-color: $color-light-gray !important;
-    color: $color-text-primary !important;
+    color: $color-white !important;
     padding: $spacing-sm $spacing-md !important;
 
     .nav-icon {
