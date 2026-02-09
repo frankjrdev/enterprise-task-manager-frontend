@@ -3,8 +3,14 @@
     <div class="logo">Enterprise Task Manager</div>
     <mat-nav-list>
       @for (userNav of userNavigateOptions; track userNav.id) {
-        <a mat-list-item [routerLink]="userNav.path" routerLinkActive="active-link">
-          {{ userNav.label }}
+        <a
+          mat-list-item
+          [routerLink]="userNav.path"
+          routerLinkActive="active-link"
+          class="nav-item"
+        >
+          <mat-icon matListItemIcon class="nav-icon">{{ userNav.icon }}</mat-icon>
+          <span matListItemTitle class="nav-label">{{ userNav.label }}</span>
         </a>
       }
     </mat-nav-list>
@@ -13,8 +19,14 @@
       <h2>Config</h2>
       <mat-nav-list>
         @for (configNav of configNavigateOptions; track configNav.id) {
-          <a mat-list-item [routerLink]="configNav.path" routerLinkActive="active-link">
-            {{ configNav.label }}
+          <a
+            mat-list-item
+            [routerLink]="configNav.path"
+            routerLinkActive="active-link"
+            class="nav-item"
+          >
+            <mat-icon matListItemIcon class="nav-icon">{{ configNav.icon }}</mat-icon>
+            <span matListItemTitle class="nav-label">{{ configNav.label }}</span>
           </a>
         }
       </mat-nav-list>
