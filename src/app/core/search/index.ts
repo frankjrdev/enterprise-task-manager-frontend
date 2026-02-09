@@ -1,4 +1,3 @@
-// Models
 export type {
   SearchResult,
   SearchParams,
@@ -11,5 +10,4 @@ export type {
   createEmptySearchResponse,
 } from './models/search.model';
 
-// Services
 export { SearchDispatcher } from './services/search-dispatcher.service';
