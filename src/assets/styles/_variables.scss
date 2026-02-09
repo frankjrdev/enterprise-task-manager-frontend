@@ -7,7 +7,8 @@ $color-dark-primary: #1e1f22; // Dark background
 $color-dark-secondary: #2b2d30; // Secondary dark
 $color-accent: #e29a33; // Orange accent
 $color-white: #ffffff; // Pure white
-$color-light-gray: #d3d3d3; // Light gray
+$color-gray: #9da0a8; // Medium gray
+$color-dark-gray: #64666c; // Dark gray
 
 // Semantic Colors
 $color-success: #10b981; // Green
@@ -16,8 +17,9 @@ $color-danger: #ef4444; // Red
 $color-info: #3b82f6; // Blue
 
 // Grayscale
-$color-text-primary: $color-white;
-$color-text-secondary: $color-light-gray;
+$color-text-primary: $color-gray;
+$color-text-secondary: $color-white;
+$color-text-inverted: $color-dark-primary;
 $color-bg-primary: $color-dark-primary;
 $color-bg-secondary: $color-dark-secondary;
 $color-border: #36383d;
