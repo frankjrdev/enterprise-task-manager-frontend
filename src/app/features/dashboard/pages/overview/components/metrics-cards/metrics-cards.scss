@@ -1,0 +1,74 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.metric-card {
+  background: $color-dark-secondary;
+  border: 1px solid $color-border;
+  border-radius: 0;
+  min-height: 120px;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.metric-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.metric-card__title {
+  margin: 0;
+  color: $color-gray;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metric-card__icon {
+  color: $color-dark-gray;
+  font-size: $font-size-lg;
+  line-height: 1;
+}
+
+.metric-card__value {
+  margin: 0;
+  color: $color-white;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-semibold;
+  line-height: 1;
+}
+
+.metric-card__footer {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+  margin-top: auto;
+}
+
+.metric-card__trend {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+}
+
+.metric-card__trend--up,
+.metric-card__trend--down {
+  color: $color-accent;
+}
+
+.metric-card__trend--stable {
+  color: $color-dark-gray;
+}
+
+.metric-card__subtitle {
+  color: $color-dark-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}

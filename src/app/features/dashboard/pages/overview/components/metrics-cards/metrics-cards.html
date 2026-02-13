@@ -1,0 +1,29 @@
+<article class="metric-card" [attr.aria-label]="title()">
+  <header class="metric-card__header">
+    <h3 class="metric-card__title">
+      {{ title() }}
+    </h3>
+    @if (icon()) {
+      <span
+        class="metric-card__icon"
+        [attr.aria-hidden]="iconLabel() ? null : 'true'"
+        [attr.aria-label]="iconLabel() || null"
+      >
+        {{ icon() }}
+      </span>
+    }
+  </header>
+
+  <p class="metric-card__value">
+    {{ value() }}
+  </p>
+
+  @if (subtitle()) {
+    <footer class="metric-card__footer">
+      <span class="metric-card__trend metric-card__trend--{{ trendCss() }}">
+        {{ trendLabel() }}
+      </span>
+      <span class="metric-card__subtitle">{{ subtitle() }}</span>
+    </footer>
+  }
+</article>
