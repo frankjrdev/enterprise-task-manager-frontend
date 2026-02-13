@@ -1,1 +1,16 @@
-<h1>Overview</h1>
+<h1 class="overview_title">My Own Progress Overview</h1>
+<p class="overview_description">Real-time progress tracking for my tasks</p>
+
+<section class="overview_metrics" aria-label="Overview metrics">
+  @for (metric of metricsCards; track metric.id) {
+    <metrics-cards
+      [title]="metric.title"
+      [value]="metric.value"
+      [subtitle]="metric.trend?.label ?? ''"
+      [trend]="metric.trend"
+      [icon]="metric.icon ?? ''"
+    />
+  }
+</section>
+
+<global-progress />

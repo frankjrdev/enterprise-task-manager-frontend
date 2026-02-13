@@ -1,1 +1,39 @@
 @use 'variables' as *;
+
+.overview_title {
+  color: $color-white;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.overview_description {
+  color: $color-gray;
+  font-size: $font-size-md;
+  margin-bottom: 1.5rem;
+}
+
+.overview_metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+metrics-cards {
+  display: block;
+  height: 100%;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .overview_metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .overview_metrics {
+    grid-template-columns: 1fr;
+  }
+}
