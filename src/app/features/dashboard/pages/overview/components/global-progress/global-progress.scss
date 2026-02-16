@@ -1,0 +1,91 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.global-progress-card {
+  background: $color-dark-secondary;
+  border: 1px solid $color-border;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.global-progress__header {
+  margin-bottom: $spacing-xl;
+}
+
+.global-progress__title {
+  margin: 0;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.08em;
+}
+
+.global-progress__chart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: 180px;
+}
+
+.global-progress__center-label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.global-progress__percentage {
+  color: $color-white;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.global-progress__complete-text {
+  color: $color-gray;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.1em;
+}
+
+.global-progress__stats {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-4xl;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $color-border;
+}
+
+.global-progress__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.global-progress__stat-label {
+  color: $color-gray;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.08em;
+}
+
+.global-progress__stat-value {
+  color: $color-white;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+}
+
+.global-progress__stat-value--risk {
+  color: $color-accent;
+}

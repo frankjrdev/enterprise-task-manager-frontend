@@ -1,1 +1,24 @@
-<p>global-progress works!</p>
+<article class="global-progress-card">
+  <header class="global-progress__header">
+    <h2 class="global-progress__title">GLOBAL PROGRESS</h2>
+  </header>
+
+  <div class="global-progress__chart">
+    <progress-ring [percentage]="percentage()" [size]="180" [strokeWidth]="12" />
+    <div class="global-progress__center-label">
+      <span class="global-progress__percentage">{{ percentage() }}%</span>
+      <span class="global-progress__complete-text">COMPLETE</span>
+    </div>
+  </div>
+
+  <footer class="global-progress__stats">
+    <div class="global-progress__stat">
+      <span class="global-progress__stat-label">ON TRACK</span>
+      <span class="global-progress__stat-value">{{ onTrack() }}</span>
+    </div>
+    <div class="global-progress__stat">
+      <span class="global-progress__stat-label global-progress__stat-label--risk">AT RISK</span>
+      <span class="global-progress__stat-value global-progress__stat-value--risk">{{ atRisk() }}</span>
+    </div>
+  </footer>
+</article>
