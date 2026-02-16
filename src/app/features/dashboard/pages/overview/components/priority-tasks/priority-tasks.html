@@ -1,0 +1,54 @@
+<article class="priority-tasks">
+  <header class="priority-tasks__header">
+    <h2 class="priority-tasks__title">PRIORITY TASKS</h2>
+    <a class="priority-tasks__view-all" href="javascript:void(0)">View All</a>
+  </header>
+
+  <div class="priority-tasks__table" role="table" aria-label="Priority tasks">
+    <div class="priority-tasks__table-header" role="row">
+      <span class="priority-tasks__col priority-tasks__col--description" role="columnheader">
+        TASK DESCRIPTION
+      </span>
+      <span class="priority-tasks__col priority-tasks__col--owner" role="columnheader">OWNER</span>
+      <span class="priority-tasks__col priority-tasks__col--status" role="columnheader">
+        STATUS
+      </span>
+      <span class="priority-tasks__col priority-tasks__col--due" role="columnheader">DUE</span>
+    </div>
+
+    @for (task of tasks(); track task.id) {
+      <div class="priority-tasks__row" role="row">
+        <div class="priority-tasks__col priority-tasks__col--description" role="cell">
+          <span
+            class="priority-tasks__dot"
+            [style.background-color]="getPriorityColor(task.priority)"
+          ></span>
+          <span class="priority-tasks__task-name">{{ task.description }}</span>
+        </div>
+        <div class="priority-tasks__col priority-tasks__col--owner" role="cell">
+          <div class="priority-tasks__avatars">
+            @for (owner of task.owners; track owner.id) {
+              <span
+                class="priority-tasks__avatar"
+                [attr.title]="owner.name"
+                [attr.aria-label]="owner.name"
+              >
+                @if (owner.avatarUrl) {
+                  <img [src]="owner.avatarUrl" [alt]="owner.name" />
+                } @else {
+                  {{ owner.initials }}
+                }
+              </span>
+            }
+          </div>
+        </div>
+        <div class="priority-tasks__col priority-tasks__col--status" role="cell">
+          <app-status-badge [status]="task.status" />
+        </div>
+        <div class="priority-tasks__col priority-tasks__col--due" role="cell">
+          {{ task.dueDateLabel }}
+        </div>
+      </div>
+    }
+  </div>
+</article>
