@@ -1,20 +1,28 @@
 @use 'variables' as *;
 
-.overview_title {
+.overview__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: $spacing-xl;
+  gap: $spacing-lg;
+}
+
+.overview__title {
   color: $color-white;
   font-size: $font-size-3xl;
   font-weight: $font-weight-semibold;
   line-height: 1.2;
-  margin-bottom: 0.5rem;
+  margin: 0 0 $spacing-xs;
 }
 
-.overview_description {
+.overview__description {
   color: $color-gray;
   font-size: $font-size-md;
-  margin-bottom: 1.5rem;
+  margin: 0;
 }
 
-.overview_metrics {
+.overview__metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: $spacing-lg;
@@ -26,14 +34,37 @@ metrics-cards {
   height: 100%;
 }
 
+.overview__middle {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.overview__activity {
+  margin-bottom: $spacing-xl;
+}
+
 @media (max-width: $breakpoint-xl) {
-  .overview_metrics {
+  .overview__metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview__middle {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: $breakpoint-md) {
-  .overview_metrics {
+  .overview__header {
+    flex-direction: column;
+  }
+
+  .overview__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .overview__middle {
     grid-template-columns: 1fr;
   }
 }

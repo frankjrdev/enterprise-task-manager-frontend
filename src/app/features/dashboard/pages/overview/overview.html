@@ -1,7 +1,12 @@
-<h1 class="overview_title">My Own Progress Overview</h1>
-<p class="overview_description">Real-time progress tracking for my tasks</p>
+<header class="overview__header">
+  <div>
+    <h1 class="overview__title">Enterprise Overview</h1>
+    <p class="overview__description">Real-time production metrics for the current sprint.</p>
+  </div>
+  <time-filter />
+</header>
 
-<section class="overview_metrics" aria-label="Overview metrics">
+<section class="overview__metrics" aria-label="Overview metrics">
   @for (metric of metricsCards; track metric.id) {
     <metrics-cards
       [title]="metric.title"
@@ -13,4 +18,11 @@
   }
 </section>
 
-<global-progress />
+<section class="overview__middle" aria-label="Progress and priority tasks">
+  <global-progress [totalTasks]="1166" [completedTasks]="842" [onTrack]="842" [atRisk]="24" />
+  <priority-tasks [tasks]="priorityTasks" />
+</section>
+
+<section class="overview__activity" aria-label="Recent team activity">
+  <recent-activities [activities]="teamActivities" />
+</section>
