@@ -1,0 +1,12 @@
+:host {
+  display: inline-block;
+  line-height: 0;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring__progress {
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,1 +1,30 @@
-<p>progress-ring works!</p>
+<svg
+  class="progress-ring"
+  [attr.width]="size()"
+  [attr.height]="size()"
+  [attr.viewBox]="'0 0 ' + size() + ' ' + size()"
+  role="img"
+  [attr.aria-label]="'Progress: ' + percentage() + '%'"
+>
+  <circle
+    class="progress-ring__track"
+    [attr.cx]="center()"
+    [attr.cy]="center()"
+    [attr.r]="radius()"
+    [attr.stroke]="trackColor()"
+    [attr.stroke-width]="strokeWidth()"
+    fill="none"
+  />
+  <circle
+    class="progress-ring__progress"
+    [attr.cx]="center()"
+    [attr.cy]="center()"
+    [attr.r]="radius()"
+    [attr.stroke]="progressColor()"
+    [attr.stroke-width]="strokeWidth()"
+    fill="none"
+    stroke-linecap="round"
+    [attr.stroke-dasharray]="circumference()"
+    [attr.stroke-dashoffset]="strokeDashoffset()"
+  />
+</svg>
