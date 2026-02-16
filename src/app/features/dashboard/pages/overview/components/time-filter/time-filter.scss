@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.time-filter {
+  display: flex;
+  gap: 0;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+}
+
+.time-filter__btn {
+  padding: $spacing-sm $spacing-lg;
+  background: transparent;
+  border: none;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover:not(.time-filter__btn--active) {
+    color: $color-white;
+    background: rgba($color-white, 0.05);
+  }
+
+  & + & {
+    border-left: 1px solid $color-border;
+  }
+}
+
+.time-filter__btn--active {
+  background: $color-light-gray;
+  color: $color-white;
+}

@@ -1,1 +1,12 @@
-<p>time-filter works!</p>
+<nav class="time-filter" aria-label="Time range filter">
+  @for (option of options(); track option.value) {
+    <button
+      class="time-filter__btn"
+      [class.time-filter__btn--active]="option.value === selected()"
+      (click)="selectFilter(option.value)"
+      [attr.aria-pressed]="option.value === selected()"
+    >
+      {{ option.label }}
+    </button>
+  }
+</nav>
