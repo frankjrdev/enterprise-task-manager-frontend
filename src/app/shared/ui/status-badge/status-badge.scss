@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+:host {
+  display: inline-block;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.badge--in-progress {
+  background-color: rgba($color-accent, 0.15);
+  color: $color-accent;
+}
+
+.badge--blocked {
+  background-color: rgba($color-danger, 0.15);
+  color: $color-danger;
+}
+
+.badge--done {
+  background-color: rgba($color-success, 0.15);
+  color: $color-success;
+}
+
+.badge--todo {
+  background-color: rgba($color-gray, 0.15);
+  color: $color-gray;
+}
+
+.badge--review {
+  background-color: rgba($color-info, 0.15);
+  color: $color-info;
+}
