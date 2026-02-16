@@ -1,0 +1,45 @@
+<article class="recent-activities">
+  <header class="recent-activities__header">
+    <h2 class="recent-activities__title">RECENT TEAM ACTIVITY</h2>
+    @if (hasLiveUpdates()) {
+      <span class="recent-activities__live">
+        <span class="recent-activities__live-dot"></span>
+        LIVE UPDATES
+      </span>
+    }
+  </header>
+
+  <div class="recent-activities__list">
+    @for (activity of activities(); track activity.id) {
+      <div class="recent-activities__item" [class.recent-activities__item--alert]="activity.isAlert">
+        <span
+          class="recent-activities__icon material-icons"
+          [class]="activityIconClass()(activity.actionType)"
+        >
+          {{ activityIcon()(activity.actionType) }}
+        </span>
+
+        <div class="recent-activities__content">
+          <p class="recent-activities__action">
+            <strong class="recent-activities__actor">{{ activity.actorName }}</strong>
+            {{ activity.actionDescription }}
+            @if (activity.targetName) {
+              <span class="recent-activities__target">{{ activity.targetName }}</span>
+            }
+            @if (activity.targetStatus) {
+              <span class="recent-activities__status">{{ activity.targetStatus | uppercase }}</span>
+            }
+          </p>
+
+          @if (activity.comment) {
+            <blockquote class="recent-activities__comment">
+              "{{ activity.comment }}"
+            </blockquote>
+          }
+
+          <time class="recent-activities__time">{{ activity.relativeTime }}</time>
+        </div>
+      </div>
+    }
+  </div>
+</article>
